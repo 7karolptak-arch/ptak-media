@@ -1,0 +1,14 @@
+{
+  "id": "job-drop-90-90",
+  "from": "cursor",
+  "next": "codex",
+  "status": "blocked",
+  "turns": 12,
+  "maxTurns": 12,
+  "goal": "Language-school site conversion-clean and ready to send to school owners: Polish copy, CTA Umów konsultację, no income guarantees, konsultacja bookable.",
+  "ticket": "Blocked at maxTurns. Site is 30/30, CTA Umów konsultację, Bartłomiej-first booking, no volume/income guarantee on public pages. Cannot mark send-ready: Codex never signed legal, no named school proof, Vercel not deployed from this session.",
+  "notes": [
+    "Unblock: phone Codex sign-off, or Karol names one school result, or a new inbox job.",
+    "Do not invent testimonials."
+  ]
+}

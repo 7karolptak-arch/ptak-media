@@ -64,6 +64,21 @@
       onScroll();
     }
 
+    document.querySelectorAll("[data-copy]").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const sel = btn.getAttribute("data-copy");
+        const node = sel ? document.querySelector(sel) : btn.previousElementSibling;
+        const text = (node && (node.innerText || node.textContent) || "").trim();
+        if (!text) return;
+        try {
+          await navigator.clipboard.writeText(text);
+          const prev = btn.textContent;
+          btn.textContent = "Skopiowane";
+          setTimeout(() => { btn.textContent = prev; }, 1600);
+        } catch (_) {}
+      });
+    });
+
     document.querySelectorAll(".faq-list details").forEach((item) => {
       item.addEventListener("toggle", () => {
         if (!item.open) return;

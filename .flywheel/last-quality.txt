@@ -1,0 +1,32 @@
+PASS 01 lang=pl on pages
+PASS 02 titles include Ptak Media
+PASS 03 home meta description
+PASS 04 canonical
+PASS 05 og tags
+PASS 06 skip link
+PASS 07 nav CTA
+PASS 08 mobile CTA
+PASS 09 primary buttons exist
+PASS 10 language-school offer
+PASS 11 no Operator 10K leak
+PASS 12 no raw student-count guarantee
+PASS 13 phones in MEMORY
+PASS 14 /konsultacja
+PASS 15 /zespol
+PASS 16 privacy link
+PASS 17 cookies link
+PASS 18 FAQ
+PASS 19 404
+PASS 20 sitemap
+PASS 21 robots
+PASS 22 logo alt
+PASS 23 no clickable divs
+PASS 24 css present
+PASS 25 consult step
+PASS 26 footer contact
+PASS 27 JSON-LD
+PASS 28 no English H1
+PASS 29 CTA label
+PASS 30 runner loaded
+
+30/30 passed

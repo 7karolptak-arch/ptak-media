@@ -1,0 +1,13 @@
+{
+  "jobId": "job-drop-90-90",
+  "from": "cursor",
+  "status": "blocked",
+  "summary": "Hit maxTurns 12. quality-30 30/30. Public pages stay language-school, Polish, Umów konsultację, no Operator leak, no contact-count guarantee. Send-ready blocked on Codex legal sign-off + named proof + deploy.",
+  "quality": {
+    "passed": 30,
+    "failed": 0,
+    "report": "30/30 passed"
+  },
+  "filesTouched": [],
+  "askCodex": "Unblock with done (accept no case study) or a new ticket. New job needs a new phone prompt if staying blocked."
+}

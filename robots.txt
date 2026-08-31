@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /kampania
 
 Sitemap: https://ptak-media.vercel.app/sitemap.xml
