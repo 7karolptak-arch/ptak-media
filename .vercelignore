@@ -1,0 +1,11 @@
+.cursor
+.flywheel
+.github
+MEMORY.md
+AGENTS.md
+README.md
+Dreams2Reality-*.csv
+*.mdc
+scripts/make-ptak-skin.mjs
+scripts/remix-mc-skin.mjs
+*-skin.png

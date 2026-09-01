@@ -1,0 +1,9 @@
+.cursor/
+.vercel/
+node_modules/
+Dreams2Reality-*.csv
+*-minecraft-skin.png
+karol-miami-skin.png
+miami-larp-skin.png
+scripts/make-ptak-skin.mjs
+scripts/remix-mc-skin.mjs

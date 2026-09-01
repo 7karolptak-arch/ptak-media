@@ -89,9 +89,109 @@
     });
   };
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", ready);
-  } else {
+  const bootShader = () => {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const canvas = document.createElement("canvas");
+    canvas.id = "bg-shader";
+    canvas.setAttribute("aria-hidden", "true");
+    document.body.prepend(canvas);
+    const gl = canvas.getContext("webgl", { alpha: false, antialias: false, depth: false });
+    if (!gl) {
+      canvas.remove();
+      return;
+    }
+
+    const compile = (type, src) => {
+      const sh = gl.createShader(type);
+      gl.shaderSource(sh, src);
+      gl.compileShader(sh);
+      if (!gl.getShaderParameter(sh, gl.COMPILE_STATUS)) {
+        gl.deleteShader(sh);
+        return null;
+      }
+      return sh;
+    };
+    const vs = compile(gl.VERTEX_SHADER, "attribute vec2 a;void main(){gl_Position=vec4(a,0,1);}");
+    const fs = compile(
+      gl.FRAGMENT_SHADER,
+      [
+        "precision mediump float;",
+        "uniform vec2 u_res;uniform float u_t;",
+        "void main(){",
+        "vec2 uv=gl_FragCoord.xy/u_res;",
+        "vec2 p=uv*2.-1.;p.x*=u_res.x/u_res.y;",
+        "float t=u_t*.12;",
+        "float n=sin(p.x*2.1+t)+sin(p.y*2.7-t*1.3);",
+        "n+=sin((p.x+p.y)*1.8+t*1.7)*.6;",
+        "float band=.5+.5*sin(n*1.4+uv.y*3.+t);",
+        "vec3 deep=vec3(.02,.03,.05);",
+        "vec3 blue=vec3(.23,.51,.96);",
+        "vec3 ice=vec3(.38,.65,.98);",
+        "vec3 col=mix(deep,blue,band*.55);",
+        "col=mix(col,ice,smoothstep(.62,.95,band)*.28);",
+        "col+=vec3(.08,.14,.28)*smoothstep(.2,.0,length(p-vec2(.7,-.55)));",
+        "gl_FragColor=vec4(col,1.);",
+        "}"
+      ].join("")
+    );
+    if (!vs || !fs) {
+      canvas.remove();
+      return;
+    }
+    const prog = gl.createProgram();
+    gl.attachShader(prog, vs);
+    gl.attachShader(prog, fs);
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      canvas.remove();
+      return;
+    }
+    gl.useProgram(prog);
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, "a");
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    const uRes = gl.getUniformLocation(prog, "u_res");
+    const uT = gl.getUniformLocation(prog, "u_t");
+
+    const fit = () => {
+      const dpr = Math.min(devicePixelRatio || 1, 1.5);
+      canvas.width = Math.floor(innerWidth * dpr);
+      canvas.height = Math.floor(innerHeight * dpr);
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.uniform2f(uRes, canvas.width, canvas.height);
+    };
+    fit();
+    addEventListener("resize", fit, { passive: true });
+    document.body.classList.add("has-shader");
+
+    let start = performance.now();
+    let raf = 0;
+    const tick = (now) => {
+      if (document.hidden) {
+        raf = 0;
+        return;
+      }
+      gl.uniform1f(uT, (now - start) / 1000);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+      raf = requestAnimationFrame(tick);
+    };
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden && !raf) raf = requestAnimationFrame(tick);
+    });
+    raf = requestAnimationFrame(tick);
+  };
+
+  const start = () => {
     ready();
+    bootShader();
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
   }
 })();

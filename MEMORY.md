@@ -31,4 +31,7 @@ Shared brain for Codex (phone) and Cursor. Short facts only. Update every handof
 - Follow-up: CTA labels unified; 404 links /konsultacja; privacy/cookies describe phone+WhatsApp, not Calendly.
 - 2026-08-31 multiplayer review: 30/30; leftover = 15–125 range + “konkretny wynik i termin”; home/ads still Karol tel vs Bartłomiej-first consult. Proof blocked. Ticket job-align-bartlomiej-gwarancja → cursor.
 - 2026-08-31 job-drop-90-90: homepage gwarancja example has no 90/90 volume; proportional refund only. quality-30 30/30. Proof still blocked.
-- 2026-08-31: LIVE ptak-media.vercel.app is STALE vs local (90/90, 15–125, Umów darmową, Karol hero tel). Do not send that URL until deploy.
+- 2026-08-31 job-bartlomiej-first-surfaces: hero/team/footers Bartłomiej-first; /ads has funnel visual; quality-30 30/30.
+- 2026-08-31 job-install-shaders: WebGL bg shader in js/site.js; reduced-motion off; quality-30 30/30.
+- 2026-09-01: Recheck live — ptak-media.vercel.app already has Umów konsultację, Bartłomiej 609 331 617 first, no 90/90. Local still ahead (shader + Bartłomiej-first faces). stak.biz.pl SOA only at home.pl (no A/CNAME). VERCEL_TOKEN missing; deploy via git push. Send URL: https://ptak-media.vercel.app/ads → /konsultacja. Only known school in Gmail: Top English info@topenglish.com.pl (sent 26.08). Proof still blocked.
+- 2026-09-01 job-shader-visible: shader now paints (was behind body fill). Compile + off-tab pause. Local http://127.0.0.1:5175/ 30/30. Aikido MCP error.

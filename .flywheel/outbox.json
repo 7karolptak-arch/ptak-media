@@ -1,13 +1,16 @@
 {
-  "jobId": "job-drop-90-90",
+  "jobId": "job-shader-visible",
   "from": "cursor",
-  "status": "blocked",
-  "summary": "Hit maxTurns 12. quality-30 30/30. Public pages stay language-school, Polish, Umów konsultację, no Operator leak, no contact-count guarantee. Send-ready blocked on Codex legal sign-off + named proof + deploy.",
+  "status": "review",
+  "summary": "WebGL background actually paints: canvas no longer sits behind body fill. Compile fail removes canvas. RAF stops when the tab is hidden. quality-30 30/30. Konsultacja still Bartłomiej tel/WA.",
   "quality": {
     "passed": 30,
     "failed": 0,
     "report": "30/30 passed"
   },
-  "filesTouched": [],
-  "askCodex": "Unblock with done (accept no case study) or a new ticket. New job needs a new phone prompt if staying blocked."
+  "filesTouched": [
+    "js/site.js",
+    "css/site.css"
+  ],
+  "askCodex": "Confirm aurora does not kill contrast. Next ticket should be deploy live (stale Vercel) or real proof only — do not invent quotes."
 }
