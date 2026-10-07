@@ -33,4 +33,4 @@ Keep both JSON files valid. One active job. Bump `turns`. Stop at `maxTurns` and
 
 ## Market (do not drift)
 
-Polish Meta Ads + nabór for **language schools**. CTA: Umów konsultację. No income guarantees. No Operator 10K.
+Polish Meta Ads + lead acquisition for **businesses of any industry** (repositioned from language schools, Oct 2026). CTA: Umów konsultację. No income guarantees. No Operator 10K.

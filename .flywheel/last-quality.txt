@@ -7,7 +7,7 @@ PASS 06 skip link
 PASS 07 nav CTA
 PASS 08 mobile CTA
 PASS 09 primary buttons exist
-PASS 10 language-school offer
+PASS 10 general business offer
 PASS 11 no Operator 10K leak
 PASS 12 no raw student-count guarantee
 PASS 13 phones in MEMORY
