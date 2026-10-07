@@ -51,8 +51,8 @@ add(8, /id="mobile-menu"[\s\S]*Umów konsultację/.test(home), "mobile CTA");
 add(9, (home.match(/class="button[^"]*"[^>]*>/g) || []).length >= 1, "primary buttons exist");
 add(
   10,
-  /szkół językowych|szkoł[aę] językow/i.test(home) && /Meta Ads/i.test(home),
-  "language-school offer"
+  /dla firm|firm[ay]? z (każdej|różnych) branż/i.test(home) && /Meta Ads/i.test(home),
+  "general business offer"
 );
 add(11, !leak.test(allHtml + css), "no Operator 10K leak");
 add(

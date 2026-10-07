@@ -1,6 +1,6 @@
 # Ptak Media
 
-Strona firmowa — Meta Ads dla szkół językowych.
+Strona firmowa — Marketing i Meta Ads dla firm.
 
 ## Local
 
